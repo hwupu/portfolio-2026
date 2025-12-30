@@ -52,8 +52,9 @@ export const onRequest = defineMiddleware(async (context, next) => {
   // Continue to the response
   const response = await next();
 
-  // Add CSP header to the response
-  response.headers.set("Content-Security-Policy", buildCSPHeader(nonce));
+  if (!import.meta.env.DEV) {
+    response.headers.set("Content-Security-Policy", buildCSPHeader(nonce));
+  }
 
   // Add other security headers
   response.headers.set("X-Frame-Options", "DENY");
