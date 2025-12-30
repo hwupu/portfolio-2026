@@ -96,11 +96,13 @@ To add new bindings (KV, D1, R2, etc.):
 - Use Astro's built-in CSP nonce support for inline scripts/styles
 
 ### Image Optimization
-- Primary format: AVIF
-- Fallback format: WEBP
-- Use `<picture>` element with source sets
-- Leverage Cloudflare Image Optimization
-- No legacy formats (PNG/GIF/JPEG)
+- **Use Astro's `<Image>` component** from `astro:assets` (Option 1 approach)
+- **Image service**: Cloudflare (configured in `astro.config.mjs`)
+- **Primary format**: AVIF with WEBP fallback
+- **Default attributes**: `format="avif"` and `fallbackFormat="webp"` on all images
+- **No legacy formats**: PNG/GIF/JPEG not used
+- Store images in `src/assets/images/` for build-time optimization
+- Cloudflare Image Resizing handles format conversion automatically
 
 ### Accessibility (WCAG)
 - Semantic HTML5 elements
@@ -119,11 +121,15 @@ To add new bindings (KV, D1, R2, etc.):
 - Robots.txt configuration
 
 ### Internationalization
-- Astro i18n routing support
-- Language switcher component
-- Content translation strategy (initial: English, expandable)
-- `lang` attribute on HTML element
-- hreflang tags for alternate languages
+- **Languages**: English (en) and Traditional Chinese/Taiwan (zh)
+- **Default locale**: English (en) at root path `/`
+- **Chinese routes**: `/zh/*` for Traditional Chinese content
+- **Routing**: `prefixDefaultLocale: false` (English has no prefix)
+- Translation files stored in `src/i18n/`
+- Language switcher component in header
+- `lang` attribute dynamically set on HTML element
+- hreflang tags for SEO
+- Note: "zh" represents Traditional Chinese (Taiwan) throughout the project
 
 ## Domain Configuration
 
