@@ -16,14 +16,6 @@ export default defineConfig({
     imageService: "cloudflare",
   }),
 
-  experimental: {
-    security: {
-      csrfProtection: {
-        origin: true,
-      },
-    },
-  },
-
   security: {
     checkOrigin: true,
   },
