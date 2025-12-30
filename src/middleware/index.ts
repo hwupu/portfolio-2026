@@ -30,6 +30,15 @@ function buildCSPHeader(nonce: string): string {
 }
 
 export const onRequest = defineMiddleware(async (context, next) => {
+  // Redirect www to non-www (canonical domain)
+  const url = new URL(context.request.url);
+  if (url.hostname === "www.phwu.dev") {
+    return Response.redirect(
+      `https://phwu.dev${url.pathname}${url.search}`,
+      301,
+    );
+  }
+
   // Generate a unique nonce for this request
   const nonce = generateNonce();
 

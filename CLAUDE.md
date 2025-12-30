@@ -125,6 +125,27 @@ To add new bindings (KV, D1, R2, etc.):
 - `lang` attribute on HTML element
 - hreflang tags for alternate languages
 
+## Domain Configuration
+
+### Production Domain
+- **Primary domain**: `phwu.dev` (canonical)
+- **WWW redirect**: `www.phwu.dev` → `phwu.dev` (301 redirect via middleware)
+
+### Setting Up Custom Domain
+1. **Via Cloudflare Dashboard** (Recommended):
+   - Go to Workers & Pages → portfolio-2026
+   - Navigate to Settings → Domains & Routes → Custom Domains
+   - Add `phwu.dev` and `www.phwu.dev`
+   - Cloudflare automatically creates DNS records and SSL certificates
+
+2. **Via wrangler.jsonc**:
+   - Routes are already configured in `wrangler.jsonc`
+   - Deploy with `pnpm deploy` to apply changes
+
+### DNS Records (Auto-created by Cloudflare)
+- `phwu.dev` → CNAME or A/AAAA to Workers
+- `www.phwu.dev` → CNAME or A/AAAA to Workers
+
 ## Development Workflow
 
 ### Documentation Resources
