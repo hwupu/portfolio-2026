@@ -14,13 +14,17 @@ function generateNonce(): string {
  */
 function buildCSPHeader(nonce: string): string {
   const directives = [
-    "default-src 'self' https://phwu.dev",
+    "default-src 'none'",
     `script-src 'nonce-${nonce}' 'strict-dynamic' https: 'unsafe-inline'`,
-    `style-src 'nonce-${nonce}' 'self' https://phwu.dev`,
-    "img-src 'self' https://phwu.dev data: https:",
-    "font-src 'self' https://phwu.dev data:",
-    "connect-src 'self' https://phwu.dev",
+    `style-src 'nonce-${nonce}' 'self'`,
+    "img-src 'self' data: https:",
+    "font-src 'self' data:",
+    "connect-src 'self'",
+    "media-src 'self'",
+    "worker-src 'self'",
+    "frame-src 'none'",
     "frame-ancestors 'none'",
+    "manifest-src 'self'",
     "base-uri 'self'",
     "form-action 'self'",
     "object-src 'none'",
