@@ -17,5 +17,14 @@ const { title, description } = Astro.props;
     </head>
     <body>
         <slot />
+
+        <script>
+            import { applyGrainTexture } from "@/utils/grain";
+
+            const mainEl = document.querySelector("body");
+            if (mainEl) {
+                applyGrainTexture(mainEl);
+            }
+        </script>
     </body>
 </html>

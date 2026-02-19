@@ -1,8 +1,15 @@
 ---
-import logo from "@/assets/icons/logo.svg";
+import { Icon } from "astro-icon/components";
 ---
 
-<footer>
-    <p>&copy; {new Date().getFullYear()} Portfolio. All rights reserved.</p>
-    <img src={logo.src} alt="Logo" width="100" height="100" />
+<footer
+    class="relative isolate px-4 pt-8 pb-[calc(1rem+env(safe-area-inset-bottom))] md:px-8 text-sm"
+>
+    <p>&copy; {new Date().getFullYear()} Henry Wu. All rights reserved.</p>
+    <Icon
+        name="logo"
+        class="absolute right-4 bottom-4 md:right-8 md:bottom-4"
+        width="32"
+        height="32"
+    />
 </footer>

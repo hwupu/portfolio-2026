@@ -28,7 +28,7 @@
         @apply bg-azure-50 text-azure-900 dark:bg-azure-900 dark:text-azure-50 text-lg leading-relaxed;
     }
     a {
-        @apply text-azure-600 dark:text-azure-200 hover:text-amber-600 dark:hover:text-gold-200 motion-safe:transition-colors;
+        @apply text-azure-600 dark:text-azure-200 hover:text-amber-600 dark:hover:text-gold-200 focus-visible:text-amber-600 dark:focus-visible:text-gold-200  motion-safe:transition-colors;
     }
     a[href^="http"]:not([href*="phwu.dev"]):not(.no-icon) {
         @apply inline-flex gap-1 after:content-["↗"];
