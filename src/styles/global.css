@@ -1,1 +1,39 @@
 @import "tailwindcss";
+
+@theme {
+    --font-serif:
+        "Cactus Classical Serif", ui-serif, Georgia, Cambria, "Times New Roman",
+        Times, serif;
+
+    --color-azure-50: #f4f6ff;
+    --color-azure-100: #e8f1f2;
+    --color-azure-200: #00a2ff;
+    --color-azure-400: #247ba0;
+    --color-azure-600: #006494;
+    --color-azure-900: #13293d;
+
+    --color-gold-50: #faf3e1;
+    --color-gold-100: #f5e7c6;
+    --color-gold-200: #ffd41d;
+    --color-gold-400: #ffa240;
+    --color-gold-600: #ff6d1f;
+
+    --color-ruby-200: #ff4646;
+    --color-ruby-600: #d73535;
+    --color-ruby-950: #222222;
+}
+
+@layer base {
+    html {
+        @apply bg-azure-50 text-azure-900 dark:bg-azure-900 dark:text-azure-50 text-lg leading-relaxed;
+    }
+    a {
+        @apply text-azure-600 dark:text-azure-200 hover:text-amber-600 dark:hover:text-gold-200 motion-safe:transition-colors;
+    }
+    a[href^="http"]:not([href*="phwu.dev"]):not(.no-icon) {
+        @apply inline-flex gap-1 after:content-["↗"];
+    }
+    a > span:not(.no-underline) {
+        @apply underline underline-offset-4 decoration-wavy;
+    }
+}
