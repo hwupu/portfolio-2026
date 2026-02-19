@@ -5,6 +5,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Footer from "@/components/layout/Footer.astro";
 import { H2, Section } from "@/components/common";
 import avatar from "@/assets/images/gura.jpg";
+import experienceLogoFrontier from "@/assets/images/experience/frontier.jpg";
+import experienceLogoLexionlu from "@/assets/images/experience/lexionlu.gif";
+import experienceLogoPw from "@/assets/images/experience/pw.svg";
+import experienceLogoTagtoo from "@/assets/images/experience/tagtoo.png";
 ---
 
 <BaseLayout description="Front-end developer portfolio">
@@ -62,21 +66,207 @@ import avatar from "@/assets/images/gura.jpg";
             </div>
         </section>
 
-        <Section class="mx-auto max-w-3xl">
-            <H2>Experience</H2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-            </p>
-        </Section>
+        <div class="mx-auto max-w-3xl pb-8">
+            <Section>
+                <H2 class="sr-only">About Me</H2>
+                <p
+                    class="indent-8 text-xl font-serif text-justify mx-auto max-w-[60ch]"
+                >
+                    Hi, I’m Pu-Hsaun (Henry) Wu, a <em>front-end</em> developer specializing
+                    in <em>WCAG</em> accessibility. I bring five years of web development
+                    experience in the aviation and finance industries, along with
+                    four years of experience in factory management and industrial
+                    design. I’m also passionate about <em>graphic design</em> and
+                    virtual reality, and I occasionally work on side projects.
+                </p>
+                <p class="text-xl font-serif text-justify mx-auto max-w-[60ch]">
+                    I’m Taiwanese and grew up in Thailand with an American
+                    education. I have been fascinated by computer graphics and
+                    UI/UX design since childhood. I enjoy playing sandbox games
+                    and watching VTuber streams.
+                </p>
+                <p class="text-xl font-serif text-justify mx-auto max-w-[60ch]">
+                    I’m currently pursuing a Master’s degree in Computer Science
+                    at National Yang Ming Chiao Tung University.
+                </p>
+            </Section>
+            <Section>
+                <H2>Experience</H2>
+                <ol class="space-y-6">
+                    {
+                        [
+                            {
+                                logo: {
+                                    type: "jpg",
+                                    src: experienceLogoFrontier.src,
+                                    alt: "logo",
+                                },
+                                name: "Frontier.cool Inc",
+                                position: "Sr. Frontend Engineer",
+                                years: "2025/09 - 2025/12",
+                            },
+                            {
+                                logo: {
+                                    type: "gif",
+                                    src: experienceLogoLexionlu.src,
+                                    alt: "logo",
+                                },
+                                name: "Lexionlu Design Firm Co., Ltd.",
+                                position: "Tech Lead",
+                                years: "2021/08 - 2025/04",
+                            },
+                            {
+                                logo: {
+                                    type: "png",
+                                    src: experienceLogoPw.src,
+                                    alt: "logo",
+                                },
+                                name: "Siam P&W Technic Co., Ltd.",
+                                position: "Deputy General Manager",
+                                years: "2017/03 - 2021/05",
+                            },
+                            {
+                                logo: {
+                                    type: "png",
+                                    src: experienceLogoTagtoo.src,
+                                    alt: "logo",
+                                },
+                                name: "Tagtoo Co., Ltd.",
+                                position: "Internship",
+                                years: "2017/03 - 2021/05",
+                            },
+                            {
+                                logo: {
+                                    type: "svg",
+                                    src: "nctu",
+                                    alt: "logo",
+                                },
+                                name: "IT, NCTU",
+                                position: "Internship",
+                                years: "2017/03 - 2021/05",
+                            },
+                        ].map((item, index) => (
+                            <li key={index} class="flex gap-2">
+                                <div class="flex-none size-14">
+                                    {item.logo.type === "svg" ? (
+                                        <Icon
+                                            name={item.logo.src}
+                                            width="56"
+                                            height="56"
+                                            class="opacity-50"
+                                        />
+                                    ) : (
+                                        <img
+                                            src={item.logo.src}
+                                            alt={item.logo.alt}
+                                            width="56"
+                                            height="56"
+                                            class="object-contain rounded-full aspect-square bg-white"
+                                        />
+                                    )}
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-xl">
+                                        <span class="sr-only">Position: </span>
+                                        {item.position}
+                                    </h3>
+                                    <p>
+                                        <span class="sr-only">Company: </span>
+                                        {item.name}
+                                    </p>
+                                    <p class="text-sm">
+                                        <span class="sr-only">Period: </span>
+                                        {item.years}
+                                    </p>
+                                </div>
+                            </li>
+                        ))
+                    }
+                </ol>
+            </Section>
+
+            <Section>
+                <H2>Education</H2>
+                <ol class="space-y-6">
+                    {
+                        [
+                            {
+                                logo: "nycu",
+                                name: "National Yang Ming Chiao Tung University",
+                                degree: "M.S. in Computer Science",
+                                years: "2026/02 - present",
+                                gpa: "",
+                            },
+                            {
+                                logo: "nctu",
+                                name: "National Chiao Tung University",
+                                degree: "M.S. in Industrial Design (Incomplete)",
+                                years: "2016/09 - 2017/01",
+                            },
+                            {
+                                logo: "nctu",
+                                name: "National Chiao Tung University",
+                                degree: "B.S. in Computer Science",
+                                years: "2012/09 - 2016/06",
+                                gpa: "3.51",
+                            },
+                            {
+                                logo: "tcis",
+                                name: "Thai-Chinese International School",
+                                degree: "Accredited by WASC, AP curriculum",
+                                years: "2008/08 - 2012/05",
+                                gpa: "3.56",
+                            },
+                        ].map((item, index) => (
+                            <li key={index} class="flex gap-2">
+                                <div class="flex-none size-14">
+                                    <Icon
+                                        name={item.logo}
+                                        width="56"
+                                        height="56"
+                                        class="opacity-50"
+                                    />
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-xl">
+                                        <span class="sr-only">
+                                            Institution:{" "}
+                                        </span>
+                                        {item.name}
+                                    </h3>
+                                    {item.degree && (
+                                        <p>
+                                            <span class="sr-only">
+                                                Degree:{" "}
+                                            </span>
+                                            {item.degree}
+                                        </p>
+                                    )}
+                                    <p class="text-sm">
+                                        <span class="sr-only">Period: </span>
+                                        {item.years}
+                                    </p>
+                                    {item.gpa && (
+                                        <p class="text-sm">
+                                            <span>GPA: </span>
+                                            {item.gpa}
+                                        </p>
+                                    )}
+                                </div>
+                            </li>
+                        ))
+                    }
+                </ol>
+            </Section>
+        </div>
     </main>
+
     <Footer />
 
     <script is:inline src="/js/three.r134.min.js"></script>
     <script is:inline src="/js/vanta.dots.min.js"></script>
     <script is:inline>
+        // Sorry, I'm being lazy.
         VANTA.DOTS({
             el: "#pixel-bg",
             backgroundAlpha: 0,

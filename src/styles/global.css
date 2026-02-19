@@ -36,4 +36,7 @@
     a > span:not(.no-underline) {
         @apply underline underline-offset-4 decoration-wavy;
     }
+    em {
+        @apply underline underline-offset-4 decoration-wavy decoration-azure-600 dark:decoration-azure-200 not-italic;
+    }
 }
