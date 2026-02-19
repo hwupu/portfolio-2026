@@ -9,6 +9,8 @@ import experienceLogoFrontier from "@/assets/images/experience/frontier.jpg";
 import experienceLogoLexionlu from "@/assets/images/experience/lexionlu.gif";
 import experienceLogoPw from "@/assets/images/experience/pw.svg";
 import experienceLogoTagtoo from "@/assets/images/experience/tagtoo.png";
+
+const { cspNonce } = Astro.locals;
 ---
 
 <BaseLayout description="Front-end developer portfolio">
@@ -267,9 +269,9 @@ import experienceLogoTagtoo from "@/assets/images/experience/tagtoo.png";
 
     <Footer />
 
-    <script is:inline src="/js/three.r134.min.js"></script>
-    <script is:inline src="/js/vanta.dots.min.js"></script>
-    <script is:inline>
+    <script is:inline src="/js/three.r134.min.js" nonce={cspNonce}></script>
+    <script is:inline src="/js/vanta.dots.min.js" nonce={cspNonce}></script>
+    <script is:inline nonce={cspNonce}>
         // Sorry, I'm being lazy.
         VANTA.DOTS({
             el: "#pixel-bg",
