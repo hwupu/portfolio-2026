@@ -17,6 +17,7 @@
     "tailwindcss": "^4.2.0"
   },
   "devDependencies": {
+    "@iconify-json/fa7-brands": "^1.2.2",
     "@iconify-json/pixel": "^1.2.1",
     "@types/node": "^25.3.0",
     "astro-icon": "^1.1.5",

@@ -25,7 +25,7 @@
 
 @layer base {
     html {
-        @apply bg-azure-50 text-azure-900 dark:bg-azure-900 dark:text-azure-50 text-lg leading-relaxed;
+        @apply bg-azure-50 bg-[url('/img/light-grain.avif')] dark:bg-[url('/img/dark-grain.avif')] bg-repeat text-azure-900 dark:bg-azure-900 dark:text-azure-50 text-lg leading-relaxed print:bg-none print:bg-white print:text-sm;
     }
     a {
         @apply text-azure-600 dark:text-azure-200 hover:text-amber-600 dark:hover:text-gold-200 focus-visible:text-amber-600 dark:focus-visible:text-gold-200  motion-safe:transition-colors;

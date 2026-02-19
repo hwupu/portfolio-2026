@@ -4,7 +4,6 @@ import { Icon } from "astro-icon/components";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Footer from "@/components/layout/Footer.astro";
 import { H2, Section } from "@/components/common";
-import avatar from "@/assets/images/gura.jpg";
 import experienceLogoFrontier from "@/assets/images/experience/frontier.jpg";
 import experienceLogoLexionlu from "@/assets/images/experience/lexionlu.gif";
 import experienceLogoPw from "@/assets/images/experience/pw.svg";
@@ -16,55 +15,66 @@ const { cspNonce } = Astro.locals;
 <BaseLayout description="Front-end developer portfolio">
     <main>
         <section
-            class="relative isolate grid place-items-center w-full min-h-screen px-4 py-8"
+            class="relative isolate grid place-items-center w-full min-h-screen px-4 py-8 print:block print:min-h-[unset]"
         >
-            <div id="pixel-bg" class="absolute inset-0 -z-1" aria-hidden="true">
+            <div
+                id="pixel-bg"
+                class="absolute inset-0 -z-1 print:hidden"
+                aria-hidden="true"
+            >
             </div>
-            <div class="flex flex-col gap-6 items-center">
+            <div
+                class="flex flex-col gap-6 items-center print:flex-row print:w-fit print:mr-auto"
+            >
                 <img
-                    src={avatar.src}
+                    src="/img/gura.avif"
                     alt="Logo"
-                    class="rounded-full"
+                    class="flex-none rounded-full"
                     width="100"
                     height="100"
                 />
-                <h1 class="text-3xl font-semibold">
-                    <span class="sr-only">Personal profile of </span>Henry Wu
-                </h1>
-                <p>MSCS @ NYCU</p>
-                <ul class="flex gap-4">
-                    {
-                        [
-                            {
-                                name: "GitHub",
-                                icon: "pixel:github",
-                                href: "https://github.com/hwupu",
-                            },
-                            {
-                                name: "LinkedIn",
-                                icon: "pixel:linkedin",
-                                href: "https://www.linkedin.com/in/puhsuanwu",
-                            },
-                            {
-                                name: "Twitter",
-                                icon: "pixel:twitter",
-                                href: "https://x.com/hwupu",
-                            },
-                        ].map((item) => (
-                            <li key={item.name}>
-                                <a
-                                    href={item.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="no-icon text-current dark:text-current opacity-60 hover:opacity-100 focus-visible:opacity-100 motion-safe:transition-opacity"
-                                >
-                                    <Icon name={item.icon} size="32" />
-                                    <span class="sr-only">{item.name}</span>
-                                </a>
-                            </li>
-                        ))
-                    }
-                </ul>
+                <div
+                    class="flex flex-col gap-6 items-center print:gap-2 print:items-start"
+                >
+                    <h1 class="text-3xl font-semibold">
+                        <span class="sr-only">Personal profile of </span>Henry
+                        Wu
+                    </h1>
+                    <p>MSCS @ NYCU</p>
+                    <ul class="flex gap-4">
+                        {
+                            [
+                                {
+                                    name: "GitHub",
+                                    icon: "fa7-brands:github",
+                                    href: "https://github.com/hwupu",
+                                },
+                                {
+                                    name: "LinkedIn",
+                                    icon: "fa7-brands:linkedin",
+                                    href: "https://www.linkedin.com/in/puhsuanwu",
+                                },
+                                {
+                                    name: "Twitter",
+                                    icon: "fa7-brands:twitter",
+                                    href: "https://x.com/hwupu",
+                                },
+                            ].map((item) => (
+                                <li key={item.name}>
+                                    <a
+                                        href={item.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="no-icon text-current dark:text-current opacity-60 hover:opacity-100 focus-visible:opacity-100 motion-safe:transition-opacity"
+                                    >
+                                        <Icon name={item.icon} size="32" />
+                                        <span class="sr-only">{item.name}</span>
+                                    </a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -72,7 +82,7 @@ const { cspNonce } = Astro.locals;
             <Section>
                 <H2 class="sr-only">About Me</H2>
                 <p
-                    class="indent-8 text-lg sm:text-xl font-serif text-justify mx-auto max-w-[60ch]"
+                    class="indent-8 text-lg sm:text-xl print:text-base font-serif text-justify mx-auto max-w-[60ch]"
                 >
                     Hi, I’m Pu-Hsaun (Henry) Wu, a <em>front-end</em> developer specializing
                     in <em>WCAG</em> accessibility. I bring five years of web development
@@ -82,7 +92,7 @@ const { cspNonce } = Astro.locals;
                     virtual reality, and I occasionally work on side projects.
                 </p>
                 <p
-                    class="text-lg sm:text-xl font-serif text-justify mx-auto max-w-[60ch]"
+                    class="text-lg sm:text-xl print:text-base font-serif text-justify mx-auto max-w-[60ch]"
                 >
                     I’m Taiwanese and grew up in Thailand with an American
                     education. I have been fascinated by computer graphics and
@@ -90,12 +100,44 @@ const { cspNonce } = Astro.locals;
                     and watching VTuber streams.
                 </p>
                 <p
-                    class="text-lg sm:text-xl font-serif text-justify mx-auto max-w-[60ch]"
+                    class="text-lg sm:text-xl print:text-base font-serif text-justify mx-auto max-w-[60ch]"
                 >
                     I’m currently pursuing a Master’s degree in Computer Science
                     at National Yang Ming Chiao Tung University.
                 </p>
             </Section>
+
+            <Section>
+                <H2>Articles</H2>
+                <p class="font-serif italic">TODO</p>
+            </Section>
+
+            <Section>
+                <H2>Headline</H2>
+                <p
+                    class="text-lg sm:text-xl print:text-base font-serif text-center italic"
+                >
+                    Sr. front-end engineer with 5 years in UI/UX in aviation and
+                    finance.
+                </p>
+            </Section>
+
+            <Section>
+                <H2>Professional Summary</H2>
+                <ul class="list-disc list-outside ml-6">
+                    {
+                        [
+                            "Developed WCAG 2.2 AA compliance websites for Starlux Airlines and was awarded “Best UX of 2025” from AirlinesRatings.com.",
+                            "Built multiple scalable and secure corporate websites and UI components by using TypeScript, Vue/Nuxt, TailwindCSS; and follow Clean Code and Shadcn development approach.",
+                            "Optimized DevOps procedures by utilizing Docker, GitHub Actions, and Traefik proxy on Ubuntu servers. Resulted in a 90% reduction in deployment time and a 40% reduction in operational costs.",
+                            "Resolved vulnerability issues for corporate websites related to strict-CSP configuration, CSRF, CAPTCHA for form submission, and XSS.",
+                        ].map((description, index) => (
+                            <li key={index}>{description}</li>
+                        ))
+                    }
+                </ul>
+            </Section>
+
             <Section>
                 <H2>Experience</H2>
                 <ol class="space-y-6">
@@ -110,6 +152,9 @@ const { cspNonce } = Astro.locals;
                                 name: "Frontier.cool Inc",
                                 position: "Sr. Frontend Engineer",
                                 years: "2025/09 - 2025/12",
+                                descriptions: [
+                                    "Developed AI-assisted fabric pattern tiling and cutting tool, customizable form field ordering and validation, and a responsive global navigation bar for Vue app under Scrum development.",
+                                ],
                             },
                             {
                                 logo: {
@@ -120,6 +165,13 @@ const { cspNonce } = Astro.locals;
                                 name: "Lexionlu Design Firm Co., Ltd.",
                                 position: "Tech Lead",
                                 years: "2021/08 - 2025/04",
+                                descriptions: [
+                                    "Developed a11y / i18n websites using Vue/Nuxt, React, Astro, and Wagtail. Covered template-approach, SSG, and SSR methods.",
+                                    "Consulted, tested, and corrected WCAG-related issues.",
+                                    "Deployed Nuxt(Node.js) and Wagtail (Python, PostgreSQL) to IIS sites, including configurations for fastCGI and httpPlatformHandler.",
+                                    "Established internal testing sites and CI/CD procedures.",
+                                    "Resolved vulnerability (SAST & DAST) issues.",
+                                ],
                             },
                             {
                                 logo: {
@@ -130,6 +182,13 @@ const { cspNonce } = Astro.locals;
                                 name: "Siam P&W Technic Co., Ltd.",
                                 position: "Deputy General Manager",
                                 years: "2017/03 - 2021/05",
+                                descriptions: [
+                                    "Managed internal IT affairs: networking, PBX, computer and software planning, installation, and management.",
+                                    "Managed cloud services: AWS Route53 (DNS), Cloudflare (CDN), Azure Entra ID (SSO), M365 (Office), Exchange Online (Email).",
+                                    "Determined market position; and designed CI, website, and catalogs.",
+                                    "Operated the manufacturing department, including procedure improvements, quality controls, and maintaining client relations.",
+                                    "Implemented ISO 9001 quality control and 5S system.",
+                                ],
                             },
                             {
                                 logo: {
@@ -168,6 +227,7 @@ const { cspNonce } = Astro.locals;
                                             width="56"
                                             height="56"
                                             class="object-contain rounded-full aspect-square bg-white"
+                                            loading="lazy"
                                         />
                                     )}
                                 </div>
@@ -184,6 +244,20 @@ const { cspNonce } = Astro.locals;
                                         <span class="sr-only">Period: </span>
                                         {item.years}
                                     </p>
+                                    {item.description && (
+                                        <p>{item.description}</p>
+                                    )}
+                                    {item.descriptions && (
+                                        <ul class="list-disc list-outside ml-6">
+                                            {item.descriptions.map(
+                                                (description, index) => (
+                                                    <li key={index}>
+                                                        {description}
+                                                    </li>
+                                                ),
+                                            )}
+                                        </ul>
+                                    )}
                                 </div>
                             </li>
                         ))
@@ -263,6 +337,11 @@ const { cspNonce } = Astro.locals;
                         ))
                     }
                 </ol>
+            </Section>
+
+            <Section>
+                <H2>Projects</H2>
+                <p class="font-serif italic">TODO</p>
             </Section>
         </div>
     </main>

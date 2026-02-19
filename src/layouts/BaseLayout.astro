@@ -18,6 +18,8 @@ const { title, description } = Astro.props;
     <body>
         <slot />
 
+        {
+            /* Disable for reference
         <script>
             import { applyGrainTexture } from "@/utils/grain";
 
@@ -26,5 +28,7 @@ const { title, description } = Astro.props;
                 applyGrainTexture(mainEl);
             }
         </script>
+        */
+        }
     </body>
 </html>
