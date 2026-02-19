@@ -15,7 +15,7 @@ function generateNonce(): string {
 function buildCSPHeader(nonce: string): string {
   const directives = [
     "default-src 'none'",
-    `script-src 'nonce-${nonce}' 'strict-dynamic' https: 'unsafe-inline'`,
+    `script-src 'nonce-${nonce}' 'strict-dynamic' 'nonce-QGWAzKc+7sCd/HqOUK0fFA==' https: 'unsafe-inline'`,
     `style-src 'nonce-${nonce}' 'self' https://fonts.googleapis.com`,
     "img-src 'self' data: https:",
     "font-src 'self' data: https://fonts.gstatic.com",
