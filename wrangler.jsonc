@@ -1,16 +1,19 @@
 /**
  * For more details on how to configure Wrangler, refer to:
  * https://developers.cloudflare.com/workers/wrangler/configuration/
+ *
+ * NOTE: `astro build` generates dist/server/wrangler.json which is used for deploy/preview.
+ * This file is the source config; the adapter reads it and merges it into the generated config.
  */
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "portfolio-2026",
-  "main": "./dist/_worker.js/index.js",
+  "main": "@astrojs/cloudflare/entrypoints/server",
   "compatibility_date": "2025-12-30",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": {
     "binding": "ASSETS",
-    "directory": "./dist",
+    "directory": "./dist/client",
   },
   "observability": {
     "enabled": true,
