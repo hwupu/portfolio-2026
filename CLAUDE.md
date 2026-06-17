@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a personal portfolio and blog site for a front-end developer with background in Computer Science, Graphic Design, Industrial Design, and factory management. Built with Astro 6 and deployed on Cloudflare Workers for SSR with strict CSP (nonce-based).
+This is a personal portfolio and blog site for a front-end developer with background in Computer Science, Graphic Design, Industrial Design, and factory management. Built with Astro 5 and deployed on Cloudflare Workers for SSR with strict CSP (nonce-based).
 
 ### Site Goals
 - Minimal, WCAG-compliant design
@@ -40,14 +40,12 @@ pnpm cf-typegen
 
 ### Deployment Platform
 - **Runtime**: Cloudflare Workers (edge runtime)
-- **Adapter**: `@astrojs/cloudflare` v13+ (uses `@cloudflare/vite-plugin` via Vite Environments API)
+- **Adapter**: `@astrojs/cloudflare` with platform proxy enabled
 - **Image Service**: Cloudflare image optimization
 
 ### Cloudflare Configuration
-- Build output: `dist/server/` (worker) + `dist/client/` (static assets)
-- Generated deploy config: `dist/server/wrangler.json` (produced by `astro build`)
-- Source config: `wrangler.jsonc` (project root — adapter merges it into the generated config)
-- Assets binding: `ASSETS` (serves static files from `dist/client/`)
+- Main worker file: `./dist/_worker.js/index.js`
+- Assets binding: `ASSETS` (serves static files from `./dist`)
 - Compatibility flags: `nodejs_compat`, `global_fetch_strictly_public`
 - Observability enabled for monitoring
 
