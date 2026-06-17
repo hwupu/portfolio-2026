@@ -19,7 +19,7 @@ function buildCSPHeader(nonce: string): string {
     `style-src 'nonce-${nonce}' 'self' https://fonts.googleapis.com`,
     "img-src 'self' data: https://c.bing.com https:",
     "font-src 'self' data: https://fonts.gstatic.com",
-    "connect-src 'self' https://www.clarity.ms",
+    "connect-src 'self' https://*.clarity.ms",
     "media-src 'self'",
     "worker-src 'self'",
     "frame-src 'none'",
